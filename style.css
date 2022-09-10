@@ -1,0 +1,687 @@
+/* common style*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Baloo Da 2", cursive;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+.section-heading {
+  font-family: "oswald", sans-serif;
+  font-size: 8rem;
+  font-weight: 300;
+  color: #ddd;
+  margin-right: 3rem;
+}
+
+/* end of common style*/
+
+/* navbar */
+.navbar {
+  width: 100%;
+  height: 6rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: fixed;
+  top: -6rem;
+  z-index: 10;
+  padding: 3rem;
+  transition: height 0.5s;
+  animation: animateNavbar 1s 0.5s forwards;
+}
+
+@keyframes animateNavbar {
+  0% {
+    top: -6rem;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.navbar.change {
+  height: 100vh;
+}
+
+.logo {
+  position: absolute;
+  top: 0.5rem;
+}
+
+.logo a {
+  font-family: "MADE soulmaze", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #eee;
+  letter-spacing: 0.1rem;
+}
+
+.logo span {
+  font-family: "MADE soulmaze", sans-serif;
+  font-size: 3.5rem;
+  color: #9b0e0e;
+  font-weight: 800;
+}
+
+.nav-list {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s;
+}
+
+.change .nav-list {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.7s 0.5s;
+}
+
+.nav-link {
+  font-family: "MADE soulmaze", sans-serif;
+  font-size: 3rem;
+  color: #fff;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  margin: 2rem 0;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #9b0e0e;
+}
+/* end of navbar */
+
+/* menus */
+.menu {
+  width: 3rem;
+  height: 4rem;
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+}
+
+.line {
+  width: 100%;
+  height: 0.1rem;
+  background-color: #eee;
+  transition: transform 0.2s;
+}
+
+.line-1 {
+  width: 50%;
+}
+.change .line-1 {
+  transform: translate(100%, 1rem) rotate(-35deg);
+  transform-origin: right;
+}
+
+.line-3 {
+  width: 50%;
+  margin-left: auto;
+}
+.change .line-3 {
+  transform: translateY(-1rem) rotate(35deg);
+  transform-origin: right;
+}
+/* end of menu */
+
+/* section 1*/
+.section-1 {
+  width: 100%;
+  height: 100vh;
+  background: url(images/dark-bg.jpeg) no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.banner {
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.banner-heading {
+  margin-bottom: 4rem;
+  height: 20rem;
+  perspective: 50rem;
+  overflow: hidden;
+}
+
+.banner-heading span {
+  font-family: "oswald", sans-serif;
+  font-size: 8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.5);
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transform: translateY(6rem);
+  opacity: 0;
+  letter-spacing: 2rem;
+}
+
+.heading-1 {
+  animation: animateHeading 12s 3s infinite;
+}
+
+.heading-2 {
+  animation: animateHeading 12s 6s infinite;
+}
+
+.heading-3 {
+  animation: animateHeading 12s 9s infinite;
+}
+
+.heading-4 {
+  animation: animateHeading 12s 12s infinite;
+}
+
+@keyframes animateHeading {
+  0% {
+    transform: translateZ(6rem);
+    opacity: 0;
+    letter-spacing: 3rem;
+  }
+  3% {
+    transform: translateZ(0);
+    opacity: 1;
+    letter-spacing: 1.5rem;
+  }
+
+  25% {
+    transform: translateZ(0);
+    opacity: 1;
+    letter-spacing: 1.5rem;
+  }
+  28% {
+    transform: translateZ(6rem);
+    opacity: 0;
+    letter-spacing: 3rem;
+  }
+  100% {
+    transform: translateZ(6rem);
+    opacity: 0;
+    letter-spacing: 3rem;
+  }
+}
+
+.banner-paragraph {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 30%;
+  margin: 0 auto 4rem auto;
+  padding: 1rem 0;
+  box-shadow: 1rem 1rem 5rem rgba(0, 0, 0, 0.5);
+  /* to animate the paragraph, we first hide it
+ by default and set opacity to 0  before taking 
+ in any futher action of seting out keyframes*/
+  display: hidden;
+  opacity: 0;
+  /* set key frames and apply */
+  animation: fadeAnimation 1s 0.7s forwards;
+}
+
+.banner-btn {
+  font-size: 2rem;
+  width: 15%;
+  height: 4rem;
+  background: linear-gradient(to right, #9b0e0e, #7a1010);
+  border-radius: 3rem;
+  border: 0.1rem solid #800505;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.5);
+  text-shadow: 0.6rem 0.3rem 0.2rem rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  /* set key frames and apply just as seen in paragraph*/
+  display: hidden;
+  opacity: 0;
+  animation: fadeAnimation 1s 2s forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+/* set a hover effect to the button using before psudo element */
+.banner-btn::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, #fff, transparent);
+  position: absolute;
+  top: 0;
+  left: -100%;
+  transform: skewX(30deg);
+  transition: left 0.5s;
+}
+
+.banner-btn:hover::before {
+  left: 100%;
+}
+
+@keyframes fadeAnimation {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+/* of end section 1*/
+
+/*section 2*/
+.section-2 {
+  width: 100%;
+  height: 100vh;
+  background-color: #222020;
+  display: flex;
+  align-items: center;
+  padding: 0 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-heading-line {
+  width: 8rem;
+  height: 0.4rem;
+  background-color: #ddd;
+}
+.video-wrapper {
+  width: 75%;
+  height: 60%;
+  position: absolute;
+  top: 5rem;
+  right: -17rem;
+}
+
+.video {
+  width: 75%;
+  height: 50%;
+  object-fit: cover;
+  opacity: 0.3;
+  transition: opacity 0.4s;
+}
+.control {
+  width: 75%;
+  position: absolute;
+  bottom: 25;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.video-bar-wrapper {
+  width: 100%;
+  height: 0.7rem;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video-bar {
+  height: 100%;
+  width: 0;
+  background-color: #d30819;
+  transition: width 0.2s linear;
+}
+
+.buttons {
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+.buttons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.buttons i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.section-2-paragraph {
+  width: 75rem;
+  position: absolute;
+  bottom: 8rem;
+  right: 7rem;
+  font-size: 1.9rem;
+  color: #ddd;
+  border-top: 0.3rem double #aaa;
+  border-bottom: 0.3rem double #aaa;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: justify;
+  text-shadow: 1rem 1rem 2rem rgba(0, 0, 0, 0.7);
+  line-height: 1.6;
+}
+
+.fa-quote-left {
+  align-self: flex-start;
+  margin-bottom: 0.4rem;
+  font-size: 4rem;
+}
+
+.fa-quote-right {
+  align-self: flex-end;
+  margin-bottom: 0.4rem;
+  font-size: 4rem;
+}
+
+/* of end section 2*/
+
+/* section 3 */
+.section-3 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: #03070e;
+  padding-left: 5rem;
+  overflow: hidden;
+}
+
+.pricing-cards-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 8rem;
+}
+
+.pricing-card {
+  width: 20rem !important;
+  height: 40rem !important;
+  background-color: #181b1d;
+  border-radius: 1rem;
+  box-shadow: 2rem 2rem 6rem rgba(0, 0, 0, 0.7);
+}
+
+.pricing-card-front {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pricing-card-heading {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 4rem;
+  padding-left: 1.5rem;
+}
+
+.heading-free {
+  background: linear-gradient(to right, #087285, #0da5d3);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.heading-basic {
+  background: linear-gradient(to right, #946809, #bdba0e);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.heading-standard {
+  background: linear-gradient(to right, #a10c14, #e23b3b);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.heading-premium {
+  background: linear-gradient(to right, #0b7e48, #3be286);
+  border-radius: 1rem 1rem 0 0;
+}
+
+.pricing-card-price {
+  font-family: " MADE soulmaze" sans-serif;
+  font-size: 5rem;
+  color: #fff;
+  font-weight: 300;
+}
+
+.pricing-card-list li {
+  margin-bottom: 0.3rem;
+}
+
+.list-free li {
+  color: #0da5d3;
+}
+
+.list-basic li {
+  color: #bdba0e;
+}
+
+.list-standard li {
+  color: #e23b3b;
+}
+
+.list-premium li {
+  color: #3be286;
+}
+
+.pricing-card-list i {
+  font-size: 1.5rem;
+  width: 3rem;
+}
+
+.pricing-card-list span {
+  font-size: 1.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+
+.pricing-card-btn {
+  width: 15rem;
+  height: 3.5rem;
+  margin-bottom: 3rem;
+  border-radius: 3rem;
+  border: none;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: 0.3rem 0.3rem 0.6rem rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+.btn-free {
+  background-color: #0da5d3;
+}
+
+.btn-basic {
+  background-color: #bdba0e;
+}
+.btn-standard {
+  background-color: #e23b3b;
+}
+.btn-premium {
+  background-color: #3be286;
+}
+
+/* .pricing-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 1rem;
+} */
+
+.pricing-card-back {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 0.5rem 0.2rem 0.9rem rgba(0, 0, 0, 0.9);
+  border-radius: 1rem;
+  padding-top: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.back-free {
+  background: linear-gradient(to right, #087285, #0da5d3);
+}
+
+.back-basic {
+  background: linear-gradient(to right, #946809, #bdba0e);
+}
+
+.back-standard {
+  background: linear-gradient(to right, #a10c14, #e23b3b);
+}
+
+.back-premium {
+  background: linear-gradient(to right, #0b7e48, #3be286);
+}
+
+.pricing-card-back a {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+/* end of section 3 */
+
+/* section 4 */
+.section-4 {
+  width: 100%;
+  height: 100vh;
+  background-color: #171718;
+  display: flex;
+  align-items: center;
+  padding: 0 6rem;
+}
+.contact-wrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-details {
+  display: flex;
+  margin-bottom: 4rem;
+}
+.contact-details div {
+  width: 24rem;
+  text-align: center;
+  margin: 2rem;
+}
+.contact-details i {
+  font-size: 4rem;
+  color: #7a1010;
+}
+.contact-details h3 {
+  font-size: 2.2rem;
+  font-family: "MADE soulmaze", sans-serif;
+  margin: 2rem 0;
+  color: #ccc;
+}
+.contact-details p {
+  font-size: 1.2rem;
+  color: #ddd;
+}
+.contact-wrapper h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+.contact-form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1.3rem;
+  border: none;
+  margin-bottom: 2rem;
+  background-color: #444;
+  color: #eee;
+  font-size: 1.4rem;
+  font-family: "oswald", san-serifs;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+.contact-form textarea {
+  max-width: 100%;
+  max-height: 10rem;
+  min-height: 5rem;
+}
+.contact-form input[type="submit"] {
+  background-color: #7a1010;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #5f0303;
+}
+/* end of section 4 */
+
+/* footer */
+.footer {
+  width: 100%;
+  height: 9rem;
+  background-color: #202212;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  padding: 3.5rem 10rem;
+}
+.footer-nav a {
+  font-family: "MADE soulmaze", sans-serif;
+  font-size: 2rem;
+  color: #ccc;
+  margin-right: 3rem;
+  letter-spacing: 0.1rem;
+  transition: color 0.3s;
+  text-transform: uppercase;
+}
+
+.footer-nav a:hover {
+  color: #863232;
+}
+
+.copyright {
+  font-size: 1.5rem;
+  color: #ddd;
+}
+/* end of footer */
